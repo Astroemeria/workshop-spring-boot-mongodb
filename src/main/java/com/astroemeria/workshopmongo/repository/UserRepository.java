@@ -9,5 +9,4 @@ import com.astroemeria.workshopmongo.domain.User;
 public interface UserRepository extends MongoRepository<User, String> {
 
 	
-	
 }
