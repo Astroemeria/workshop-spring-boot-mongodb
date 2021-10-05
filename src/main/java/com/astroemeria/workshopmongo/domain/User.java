@@ -3,20 +3,25 @@ package com.astroemeria.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
-	private String nameString;
+	private String name;
 	private String email;
 	
 	public User() {
 		
 	}
-	public User(String id, String nameString, String email) {
+	public User(String id, String name, String email) {
 		this.id = id;
-		this.nameString = nameString;
+		this.name = name;
 		this.email = email;
 	}
 	public String getId() {
@@ -25,11 +30,11 @@ public class User implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getNameString() {
-		return nameString;
+	public String getName() {
+		return name;
 	}
-	public void setNameString(String nameString) {
-		this.nameString = nameString;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -43,7 +48,7 @@ public class User implements Serializable {
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nameString == null) ? 0 : nameString.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 	@Override
@@ -65,10 +70,10 @@ public class User implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nameString == null) {
-			if (other.nameString != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!nameString.equals(other.nameString))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
